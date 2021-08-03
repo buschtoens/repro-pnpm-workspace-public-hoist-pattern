@@ -1,0 +1,1 @@
+.my-example-b.eslintrc.js

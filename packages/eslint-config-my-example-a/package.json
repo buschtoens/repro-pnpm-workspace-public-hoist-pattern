@@ -1,0 +1,9 @@
+{
+  "name": "eslint-config-my-example-a",
+  "dependencies": {
+    "eslint-config-my-prettier": "workspace:^"
+  },
+  "engines": {
+    "node": "^12.20 || >=14.13"
+  }
+}

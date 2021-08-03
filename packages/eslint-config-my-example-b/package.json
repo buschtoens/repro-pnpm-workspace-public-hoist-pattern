@@ -1,0 +1,9 @@
+{
+  "name": "eslint-config-my-example-b",
+  "dependencies": {
+    "eslint-config-my-example-a": "workspace:^"
+  },
+  "engines": {
+    "node": "^12.20 || >=14.13"
+  }
+}

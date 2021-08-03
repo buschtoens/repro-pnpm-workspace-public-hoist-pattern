@@ -1,0 +1,35 @@
+{
+  "name": "@buschtoens/repro-pnpm-workspace-public-hoist-pattern",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:buschtoens/repro-pnpm-workspace-public-hoist-pattern.git"
+  },
+  "scripts": {
+    "deps:hoisted": "ls node_modules",
+    "deps:clean": "pnpm --recursive exec rm -rf ./node_modules && rm -f pnpm-lock.yaml",
+    "deps:reinstall": "pnpm deps:clean && pnpm install",
+    "lint": "eslint .",
+    "lint:relink": "iife() { rm -f .eslintrc.js && ln -s .$1.eslintrc.js .eslintrc.js && pnpm lint; }; iife",
+    "lint:my-prettier": "pnpm lint:relink my-prettier",
+    "lint:my-example-a": "pnpm lint:relink my-example-a",
+    "lint:my-example-b": "pnpm lint:relink my-example-b",
+    "lint:my-example-c": "pnpm lint:relink my-example-c",
+    "npmrc:relink": "iife() { rm -f .npmrc && ln -s .$1.npmrc .npmrc && pnpm deps:reinstall; }; iife",
+    "npmrc:get": "pnpm config get public-hoist-pattern"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-my-example-a": "workspace:*",
+    "eslint-config-my-example-c": "workspace:*",
+    "eslint-config-my-prettier": "workspace:*",
+    "my-prettier-config": "workspace:*"
+  },
+  "engines": {
+    "node": "^12.20 || >=14.13"
+  },
+  "prettier": "my-prettier-config",
+  "volta": {
+    "node": "14.17.4"
+  }
+}

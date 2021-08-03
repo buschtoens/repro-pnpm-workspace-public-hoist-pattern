@@ -51,8 +51,7 @@ $ pnpm lint:my-example-c
 - `eslint-config-my-example-a`: only hoisted due to being referenced in root `package.json`
 - `eslint-config-my-example-b`: not hoisted, but should be
 - `eslint-config-my-example-c`: only hoisted due to being referenced in root `package.json`
-- `eslint-config-my-prettier`: not hoisted, but should be
-- `my-prettier-config`: only hoisted due to being referenced in root `package.json`
+- `eslint-config-my-prettier`: only hoisted due to being referenced in root `package.json`
 - `my-prettier-config`: shouldn't normally be hoisted, but is hoisted due to
   being referenced in root `package.json`
 

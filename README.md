@@ -1,11 +1,31 @@
 # `pnpm` 🪳: `public-hoist-pattern` ignores workspaces packages
 
-**Expected behavior:** Packages that match the `public-hoist-pattern` are
-hoisted to the root `node_modules`, *including packages from the workspace
-itself*.
+## Description
 
-**Actual behavior:** Only external dependencies and workspace-internal
-dependencies *listed as root dependencies* are hoisted.
+### Expected Behavior
+
+Packages that match the `public-hoist-pattern` are hoisted to the root
+`node_modules`, *including packages from the workspace itself*.
+
+I expect to find these workspace-internal packages in the root `node_modules`,
+as their names match the `public-hoist-pattern`:
+
+- `eslint-config-my-example-a`
+- `eslint-config-my-example-b`
+- `eslint-config-my-example-c`
+- `eslint-config-my-prettier`
+
+### Actual Behavior
+
+Only external dependencies and workspace-internal dependencies *listed as root dependencies* are hoisted.
+
+Actually hoisted workspace-internal packages:
+
+- `eslint-config-my-example-a`
+- `eslint-config-my-example-c`
+- `eslint-config-my-prettier`
+- *...plus a few more, due to being explicitly referenced in the root
+  `package.json`*
 
 ## Demonstration
 

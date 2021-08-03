@@ -1,6 +1,6 @@
-# `pnpm` 🪳: `public-hoist-pattern` ignores workspaces packages
+# 🪳 [`pnpm`#3642](https://github.com/pnpm/pnpm/issues/3642) Reproduction
 
-## Description
+## `public-hoist-pattern` does not apply to workspace packages
 
 ### Expected Behavior
 
